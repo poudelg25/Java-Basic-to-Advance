@@ -1,8 +1,6 @@
 package collection;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class MapExample {
     public static void main(String[] args){
@@ -114,6 +112,32 @@ public class MapExample {
             System.out.println(entry.getKey()+" = "+entry.getValue());
             // or
             // System.out.println(entry);
+        }
+        System.out.println("#########################################");
+        System.out.println("Example of LinkedHash Map: ");
+        Map<String, String> nameMap = new LinkedHashMap<>();
+        nameMap.put("Gopal", "Poudel");
+        nameMap.put("Sagar", "Thapa");
+        nameMap.put("Rajesh", "Bashyal");
+        nameMap.put("Sansar", "Bhusal");
+
+        Iterator iterator6 = nameMap.entrySet().iterator();
+        while(iterator6.hasNext()){
+            Map.Entry entry = (Map.Entry)iterator6.next();
+            System.out.println(entry.getKey()+ " = " + entry.getValue());
+        }
+
+        System.out.println("#########################################");
+        System.out.println("Example of Tree Map: ");
+
+        Map<String, Integer> zipCode = new TreeMap<>();
+        zipCode.put("Edgewater", 60660);
+        zipCode.put("Uptown", 60652);
+        zipCode.put("Oldtown", 65668);
+        zipCode.put("Rogers Park", 60640);
+
+        for(Map.Entry<String, Integer> entry: zipCode.entrySet()){
+            System.out.println(entry.getKey()+": "+entry.getValue());
         }
     }
 }

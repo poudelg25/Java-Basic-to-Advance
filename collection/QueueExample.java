@@ -13,7 +13,7 @@ public class QueueExample {
         values.add(3);
 
 
-        System.out.println("Printing Integer values using Iterator: ");
+        System.out.println("Printing Integer values in Priority Queue using Iterator: ");
         Iterator iterator = values.iterator();
         while(iterator.hasNext()){
             System.out.println(iterator.next());
