@@ -7,5 +7,7 @@ public class TriPredicateExample {
 
         TriPredicate<Integer, Integer, Integer> triPredicate1 = (num1, num2, num3) -> (num1 + num2) == num3;
         System.out.println(triPredicate1.test(3, 4, 10));
+
+        triPredicate.test();
     }
 }
