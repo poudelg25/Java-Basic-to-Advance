@@ -153,7 +153,13 @@ public class ArrayListExample {
             System.out.println(listIterator.previous());
         }
 
-
+        // The list below cannot be changed because List.of() creates immutable list.
+    List<String> statesList = List.of("Wisconsin", "Texas", "Virginia");
+        //statesList.remove("Texas"); it cannot be done
+        // statesList.add("Ohio"); it cannot be done
+        for(String state : statesList){
+            System.out.println(state);
+        }
 
     }
 }
