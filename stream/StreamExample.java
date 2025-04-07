@@ -3,6 +3,7 @@ package stream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamExample {
     public static void main(String[] args){
@@ -80,10 +81,84 @@ public class StreamExample {
         states.stream().skip(5).forEach(state-> System.out.println(state));
         //or states.stream().skip(5).forEach(System.out::println);
 
+
         //Using method chaining, we can use multiple Intermediate operations in stream to get the desired output
         System.out.println("###################");
         System.out.println("Printing the first 4 distinct states in uppercase and sorted order: ");
         states.stream().distinct().sorted().limit(4).map(state->state.toUpperCase()).forEach(state-> System.out.println(state));
         // or states.stream().distinct().sorted().limit(4).map(String::toUpperCase).forEach(System.out::println);
+
+
+        // Using collect terminal operation, collection elements to a new list
+        System.out.println("####################");
+        System.out.println("Creating a new list using collect terminal operation and printing each element from the new list:");
+        List<String> newList = states.stream().collect(Collectors.toList());
+        // or List<String> newList = states.stream().toList();
+        newList.forEach(System.out::println);
+
+
+        // Using forEach Terminal Operation, Printing each state from states list
+        System.out.println("##################");
+        System.out.println("Printing each state name using forEach Terminal operation:");
+        states.forEach(state-> System.out.println(state));
+        // or states.forEach(System.out::println);
+
+
+        // Using reduce Terminal Operation, Printing all states by concatenating from the states list
+        System.out.println("###################");
+        System.out.println("Printing all states in a single line by concatenating using reduce Terminal Operation: ");
+        String concatenatedStates = states.stream().reduce(" ", (a, b)-> a +" "+b);
+        System.out.println(concatenatedStates);
+
+
+        //Using min Terminal Operation, Printing the minimum state with natural order
+        System.out.println("################");
+        System.out.println("Printing the minimum states with natural order: ");
+        String minStates = states.stream().min(String::compareTo).get();
+        System.out.println(minStates);
+
+
+        //Using max Terminal Operation, Printing the maximum state with natural order
+        System.out.println("################");
+        System.out.println("Printing the maximum states with natural order: ");
+        String maxStates = states.stream().max(String::compareTo).get();
+        System.out.println(maxStates);
+
+        //Using findFirst Terminal Operation, Printing the first state with specific search
+        System.out.println("################");
+        System.out.println("Printing the first state starts with 'W': ");
+        String findFirstState = states.stream().filter(state-> state.startsWith("W")).findFirst().get();
+        System.out.println(findFirstState);
+
+        //Using findAny Terminal Operation, Printing any state with specific search
+        System.out.println("################");
+        System.out.println("Printing the any state starts with 'W': ");
+        String findAnyState = states.stream().filter(state-> state.startsWith("W")).findAny().get();
+        System.out.println(findAnyState);
+
+
+        //Using anyMatch Terminal Operation, Checking if the specific search matched to any elements of the list
+        System.out.println("################");
+        System.out.println("Checking if there is any state starts with 'W': ");
+        boolean anyMatch = states.stream().anyMatch(state -> state.startsWith("W"));
+        System.out.println(anyMatch);
+
+        //Using allMatch Terminal Operation, Checking if the specific search matched to all elements of the list
+        System.out.println("################");
+        System.out.println("Checking if there are all states starts with 'W': ");
+        boolean allMatch = states.stream().allMatch(state -> state.startsWith("W"));
+        System.out.println(allMatch);
+
+        //Using noneMatch Terminal Operation, Checking if the specific search does not match to all/any elements of the list
+        System.out.println("################");
+        System.out.println("Checking if there are no states starts with 'W': ");
+        boolean noneMatch = states.stream().noneMatch(state -> state.startsWith("W"));
+        System.out.println(noneMatch);
+
+        // Using count() Terminal Operation, counting total number of elements in the list
+        System.out.println("#########################");
+        System.out.println("Printing/Counting total number of states in the list");
+        Long countStates = states.stream().count();
+        System.out.println(countStates);
     }
 }
