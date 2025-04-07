@@ -18,7 +18,7 @@ public class StreamExample {
         states.add("Michigan");
         states.add("Washington");
 
-        // Printing each state from states list
+        // Using forEach Terminal Operation, Printing each state from states list
         System.out.println("Printing each state name:");
         states.forEach(System.out::println);
 
@@ -80,5 +80,10 @@ public class StreamExample {
         states.stream().skip(5).forEach(state-> System.out.println(state));
         //or states.stream().skip(5).forEach(System.out::println);
 
+        //Using method chaining, we can use multiple Intermediate operations in stream to get the desired output
+        System.out.println("###################");
+        System.out.println("Printing the first 4 distinct states in uppercase and sorted order: ");
+        states.stream().distinct().sorted().limit(4).map(state->state.toUpperCase()).forEach(state-> System.out.println(state));
+        // or states.stream().distinct().sorted().limit(4).map(String::toUpperCase).forEach(System.out::println);
     }
 }
