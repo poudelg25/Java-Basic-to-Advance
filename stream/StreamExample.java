@@ -1,8 +1,6 @@
 package stream;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamExample {
@@ -59,8 +57,8 @@ public class StreamExample {
         // Using Sorted Intermediate Operation in stream, printing the state names in reversed order(descending order)
         System.out.println("#####################");
         System.out.println("Printing state names in reverse order(descending order): ");
-        states.stream().sorted(Comparator.reverseOrder()).forEach(state-> System.out.println(state));
-        // or states.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+        states.stream().sorted(Collections.reverseOrder()).forEach(state-> System.out.println(state));
+        // or states.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
 
         // Using Distinct Intermediate Operation in stream, printing the distinct state names
         System.out.println("#####################");
