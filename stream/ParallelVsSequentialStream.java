@@ -24,6 +24,6 @@ public class ParallelVsSequentialStream {
         System.out.println("################");
         startTime = System.currentTimeMillis();
         num.parallelStream().mapToLong(Integer::longValue).sum();
-        System.out.println("Time taken by Parallel stream: "+(System.currentTimeMillis()-startTime));
+        System.out.println("Time taken by Parallel stream: "+(System.currentTimeMillis()-startTime)+" ms");
     }
 }
