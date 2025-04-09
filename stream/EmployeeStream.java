@@ -1,6 +1,5 @@
 package stream;
 
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -85,7 +84,8 @@ public class EmployeeStream {
         employeeList.stream().map(employee -> {employee.setSalary(employee.getSalary()*1.1);
             return employee;
         }).forEach(System.out::println);
-        // note: this will also change the salaries of original employee list because forEach terminal operation is executed here
+        // note: this will also change the salaries of original employee list because forEach
+        // terminal operation is executed here
 
         // Grouping by gender
         System.out.println("##############");
@@ -145,9 +145,8 @@ public class EmployeeStream {
         employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment))
                 .forEach((department, employee)->{
-                    System.out.println(department+": "+employee.stream().max(Comparator.comparing(Employee::getSalary)).get().getSalary());
+                    System.out.println(department+": "+employee.stream().max(Comparator.comparing(Employee::getSalary))
+                            .get().getSalary());
                 });
-
-
     }
 }
