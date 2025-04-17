@@ -11,7 +11,7 @@ public class ThreadUseCase {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e){
-               e.getStackTrace();
+               e.printStackTrace();
             }
         }
         System.out.println("Program Ended.... worked by: "+Thread.currentThread().getName()+" thread");
