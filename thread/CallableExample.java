@@ -18,13 +18,13 @@ public class CallableExample {
         });
         System.out.println("Program2 is done by: "+Thread.currentThread().getName());
         System.out.println("Program3  is done by: "+Thread.currentThread().getName());
+        //Thread.sleep(10000);
         System.out.println("Program4 is done by: "+Thread.currentThread().getName());
-
-        int result = future.get();
+        System.out.println(future.isDone()); // Returns true if the task is finished, false otherwise
+        int result = future.get(); // Blocking code - where it waits until it gets the result
+        System.out.println(future.isDone());// returns True, since .get() has already completed the task and retrieved the result
         System.out.println(result);
-
         System.out.println("Program ended....: "+Thread.currentThread().getName());
-
         executorService.shutdown();
     }
 }
