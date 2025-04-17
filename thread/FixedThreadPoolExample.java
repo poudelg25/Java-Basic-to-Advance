@@ -10,6 +10,7 @@ public class FixedThreadPoolExample {
         //Create a fixed thread pool with 5 threads
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
+
         for (int t = 1; t <= 5; t++) {
             int taskNumber = t;
             // Submit a task to the thread pool
