@@ -8,7 +8,7 @@ public class SingleThreadExecutorExample {
 
         System.out.println("Program started...: "+Thread.currentThread().getName());
 
-        // Create a single-threaded executor
+        // Create a single-threaded executorService
         ExecutorService executorService = Executors.newSingleThreadExecutor();
        // Since we are not returning any value, we are using Runnable(not Callable).
         // If we were returning a value, it would require a Callable.
